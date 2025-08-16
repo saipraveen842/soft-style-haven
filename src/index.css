@@ -2,41 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Boutique Fashion E-commerce Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - soft and elegant */
+    --background: 0 0% 99%;
+    --foreground: 340 8% 25%;
 
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 340 8% 25%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 340 8% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Blush Pink */
+    --primary: 350 100% 88%;
+    --primary-foreground: 340 15% 20%;
+    --primary-hover: 350 100% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Lavender */
+    --secondary: 260 60% 92%;
+    --secondary-foreground: 260 15% 25%;
+    --secondary-hover: 260 60% 88%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Mint Green */
+    --accent: 140 40% 90%;
+    --accent-foreground: 140 20% 25%;
+    --accent-hover: 140 40% 85%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Tertiary - Baby Blue */
+    --tertiary: 200 100% 95%;
+    --tertiary-foreground: 200 20% 25%;
+    --tertiary-hover: 200 100% 90%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Quaternary - Peach */
+    --quaternary: 25 100% 90%;
+    --quaternary-foreground: 25 20% 25%;
+    --quaternary-hover: 25 100% 85%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Muted colors */
+    --muted: 340 8% 96%;
+    --muted-foreground: 340 8% 45%;
 
-    --radius: 0.5rem;
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and input */
+    --border: 340 8% 92%;
+    --input: 340 8% 96%;
+    --ring: 350 100% 88%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--tertiary)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--quaternary)), hsl(var(--primary)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(var(--primary) / 0.2);
+    --shadow-elegant: 0 8px 30px -12px hsl(var(--primary) / 0.25);
+    --shadow-hover: 0 12px 40px -16px hsl(var(--primary) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +136,34 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .boutique-hero {
+    background: var(--gradient-primary);
+  }
+
+  .boutique-card {
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .boutique-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .boutique-button {
+    background: var(--gradient-warm);
+    transition: var(--transition-spring);
+  }
+
+  .boutique-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-elegant);
   }
 }
