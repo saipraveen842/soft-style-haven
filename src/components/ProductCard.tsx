@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useAppContext } from "@/context/AppContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   id: string;
@@ -27,15 +29,25 @@ const ProductCard = ({
   isWishlisted = false
 }: ProductCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [wishlist, setWishlist] = useState(isWishlisted);
+  const { cart, wishlist } = useAppContext();
+  const { toast } = useToast();
+  
+  const isInWishlist = wishlist.isInWishlist(id);
 
   const handleWishlistToggle = () => {
-    setWishlist(!wishlist);
+    wishlist.toggleWishlist({ id, name, price, image });
+    toast({
+      title: isInWishlist ? "Removed from wishlist" : "Added to wishlist",
+      description: `${name} ${isInWishlist ? "removed from" : "added to"} your wishlist`,
+    });
   };
 
   const handleAddToCart = () => {
-    // This would integrate with cart functionality
-    console.log(`Added ${name} to cart`);
+    cart.addToCart({ id, name, price, image });
+    toast({
+      title: "Added to cart",
+      description: `${name} has been added to your cart`,
+    });
   };
 
   return (
@@ -70,7 +82,7 @@ const ProductCard = ({
         >
           <Heart 
             className={`h-4 w-4 transition-colors ${
-              wishlist ? 'fill-destructive text-destructive' : 'text-muted-foreground'
+              isInWishlist ? 'fill-destructive text-destructive' : 'text-muted-foreground'
             }`} 
           />
         </Button>

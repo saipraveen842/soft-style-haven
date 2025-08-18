@@ -15,7 +15,11 @@ const Dresses = () => {
             Elegant dresses for every occasion
           </p>
         </div>
-        <FeaturedProducts />
+        <FeaturedProducts 
+          category="dresses"
+          title="Dresses"
+          description="Elegant dresses for every occasion"
+        />
       </main>
       <Footer />
     </div>

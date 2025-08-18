@@ -15,7 +15,11 @@ const Tops = () => {
             Stylish tops for your wardrobe
           </p>
         </div>
-        <FeaturedProducts />
+        <FeaturedProducts 
+          category="tops"
+          title="Tops"
+          description="Stylish tops for your wardrobe"
+        />
       </main>
       <Footer />
     </div>

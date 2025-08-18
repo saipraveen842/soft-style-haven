@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { useAppContext } from "@/context/AppContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cart, wishlist } = useAppContext();
 
   const categories = [
     { name: "New Arrivals", path: "/new-arrivals" },
@@ -44,16 +46,20 @@ const Navbar = () => {
           
           <Button variant="ghost" size="icon" className="relative">
             <Heart className="h-5 w-5" />
-            <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary">
-              3
-            </Badge>
+            {wishlist.getWishlistCount() > 0 && (
+              <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary flex items-center justify-center">
+                {wishlist.getWishlistCount()}
+              </Badge>
+            )}
           </Button>
           
           <Button variant="ghost" size="icon" className="relative">
             <ShoppingBag className="h-5 w-5" />
-            <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary">
-              2
-            </Badge>
+            {cart.getCartCount() > 0 && (
+              <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary flex items-center justify-center">
+                {cart.getCartCount()}
+              </Badge>
+            )}
           </Button>
 
           <Button

@@ -15,7 +15,11 @@ const NewArrivals = () => {
             Discover the latest trends in women's fashion
           </p>
         </div>
-        <FeaturedProducts />
+        <FeaturedProducts 
+          category="new-arrivals"
+          title="New Arrivals"
+          description="Discover the latest trends in women's fashion"
+        />
       </main>
       <Footer />
     </div>

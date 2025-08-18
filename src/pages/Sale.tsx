@@ -15,7 +15,11 @@ const Sale = () => {
             Amazing deals and discounts
           </p>
         </div>
-        <FeaturedProducts />
+        <FeaturedProducts 
+          category="sale"
+          title="Sale"
+          description="Amazing deals and discounts"
+        />
       </main>
       <Footer />
     </div>

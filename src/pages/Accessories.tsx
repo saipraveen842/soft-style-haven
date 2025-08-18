@@ -15,7 +15,11 @@ const Accessories = () => {
             Complete your look with our accessories
           </p>
         </div>
-        <FeaturedProducts />
+        <FeaturedProducts 
+          category="accessories"
+          title="Accessories"
+          description="Complete your look with our accessories"
+        />
       </main>
       <Footer />
     </div>
