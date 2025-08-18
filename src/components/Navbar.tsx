@@ -3,20 +3,27 @@ import { Search, Heart, ShoppingBag, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const categories = ["New Arrivals", "Dresses", "Tops", "Accessories", "Sale"];
+  const categories = [
+    { name: "New Arrivals", path: "/new-arrivals" },
+    { name: "Dresses", path: "/dresses" },
+    { name: "Tops", path: "/tops" },
+    { name: "Accessories", path: "/accessories" },
+    { name: "Sale", path: "/sale" }
+  ];
 
   return (
     <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
       {/* Top bar */}
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Bella Boutique
-        </div>
+        </Link>
 
         {/* Search bar - Desktop */}
         <div className="hidden md:flex items-center max-w-md flex-1 mx-8">
@@ -65,13 +72,13 @@ const Navbar = () => {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-center space-x-8">
             {categories.map((category) => (
-              <Button
-                key={category}
-                variant="ghost"
-                className="text-sm font-medium hover:text-primary transition-colors"
+              <Link
+                key={category.name}
+                to={category.path}
+                className="text-sm font-medium hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-accent"
               >
-                {category}
-              </Button>
+                {category.name}
+              </Link>
             ))}
           </div>
         </div>
@@ -93,13 +100,14 @@ const Navbar = () => {
             {/* Mobile categories */}
             <div className="space-y-2">
               {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant="ghost"
-                  className="w-full justify-start text-left"
+                <Link
+                  key={category.name}
+                  to={category.path}
+                  className="w-full justify-start text-left px-4 py-2 rounded-md hover:bg-accent block"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  {category}
-                </Button>
+                  {category.name}
+                </Link>
               ))}
             </div>
           </div>
