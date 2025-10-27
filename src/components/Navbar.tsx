@@ -44,23 +44,27 @@ const Navbar = () => {
             <User className="h-5 w-5" />
           </Button>
           
-          <Button variant="ghost" size="icon" className="relative">
-            <Heart className="h-5 w-5" />
-            {wishlist.getWishlistCount() > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary flex items-center justify-center">
-                {wishlist.getWishlistCount()}
-              </Badge>
-            )}
-          </Button>
+          <Link to="/wishlist">
+            <Button variant="ghost" size="icon" className="relative">
+              <Heart className="h-5 w-5" />
+              {wishlist.getWishlistCount() > 0 && (
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary flex items-center justify-center">
+                  {wishlist.getWishlistCount()}
+                </Badge>
+              )}
+            </Button>
+          </Link>
           
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingBag className="h-5 w-5" />
-            {cart.getCartCount() > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary flex items-center justify-center">
-                {cart.getCartCount()}
-              </Badge>
-            )}
-          </Button>
+          <Link to="/cart">
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingBag className="h-5 w-5" />
+              {cart.getCartCount() > 0 && (
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-primary flex items-center justify-center">
+                  {cart.getCartCount()}
+                </Badge>
+              )}
+            </Button>
+          </Link>
 
           <Button
             variant="ghost"

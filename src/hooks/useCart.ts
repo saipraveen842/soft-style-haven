@@ -33,6 +33,18 @@ export const useCart = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const updateQuantity = (productId: string, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(productId);
+      return;
+    }
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === productId ? { ...item, quantity } : item
+      )
+    );
+  };
+
   const getCartTotal = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
@@ -41,6 +53,7 @@ export const useCart = () => {
     cartItems,
     addToCart,
     removeFromCart,
+    updateQuantity,
     getCartCount,
     getCartTotal
   };
