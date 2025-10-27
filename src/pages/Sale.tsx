@@ -7,15 +7,7 @@ const Sale = () => {
     <div className="min-h-screen">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
-            Sale
-          </h1>
-          <p className="text-muted-foreground text-lg">
-            Amazing deals and discounts
-          </p>
-        </div>
-        <FeaturedProducts 
+        <FeaturedProducts
           category="sale"
           title="Sale"
           description="Amazing deals and discounts"
