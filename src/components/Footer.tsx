@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <h4 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Bella Boutique
+              Laiba Designers
             </h4>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Your destination for elegant, contemporary women's fashion. We curate timeless pieces that celebrate your individual style.
@@ -98,7 +98,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-muted-foreground">
           <div>
-            © 2024 Bella Boutique. All rights reserved.
+            © 2024 Laiba Designers. All rights reserved.
           </div>
           <div className="flex space-x-6">
             <span className="hover:text-primary cursor-pointer transition-colors">Privacy Policy</span>
