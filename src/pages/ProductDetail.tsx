@@ -6,12 +6,110 @@ import { useAppContext } from "@/context/AppContext";
 import { useToast } from "@/hooks/use-toast";
 import { Heart, ShoppingCart, Star, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import dress1 from "@/assets/dress-1.jpg";
+import top1 from "@/assets/top-1.jpg";
+import accessory1 from "@/assets/accessory-1.jpg";
 
-// Sample product data (in a real app, this would come from an API)
+// Sample product data (matches FeaturedProducts data)
 const products = [
-  { id: "1", name: "Elegant Summer Dress", price: 89.99, image: "/src/assets/dress-1.jpg", rating: 4.5, reviews: 128, description: "Beautiful flowing summer dress perfect for any occasion. Made with premium breathable fabric.", category: "dresses", isOnSale: true, originalPrice: 129.99 },
-  { id: "2", name: "Casual Chic Top", price: 45.99, image: "/src/assets/top-1.jpg", rating: 4.3, reviews: 89, description: "Versatile top that pairs perfectly with jeans or skirts. Comfortable and stylish.", category: "tops" },
-  { id: "3", name: "Designer Handbag", price: 159.99, image: "/src/assets/accessory-1.jpg", rating: 4.8, reviews: 234, description: "Luxury handbag crafted from premium leather. Spacious interior with multiple compartments.", category: "accessories" },
+  {
+    id: "1",
+    name: "Flowing Midi Dress",
+    price: 2999,
+    originalPrice: 3999,
+    image: dress1,
+    rating: 4.5,
+    reviews: 127,
+    isOnSale: true,
+    category: "dresses",
+    description: "Beautiful flowing summer dress perfect for any occasion. Made with premium breathable fabric."
+  },
+  {
+    id: "2", 
+    name: "Silk Lavender Blouse",
+    price: 1899,
+    image: top1,
+    rating: 4.8,
+    reviews: 89,
+    category: "tops",
+    description: "Versatile top that pairs perfectly with jeans or skirts. Comfortable and stylish."
+  },
+  {
+    id: "3",
+    name: "Pearl Jewelry Set",
+    price: 2499,
+    originalPrice: 2999,
+    image: accessory1,
+    rating: 4.7,
+    reviews: 156,
+    isOnSale: true,
+    category: "accessories",
+    description: "Luxury jewelry set crafted from premium materials. Perfect for any special occasion."
+  },
+  {
+    id: "4",
+    name: "Elegant Evening Dress",
+    price: 4499,
+    image: dress1,
+    rating: 4.9,
+    reviews: 203,
+    category: "dresses",
+    description: "Stunning evening dress that will make you stand out at any formal event."
+  },
+  {
+    id: "5",
+    name: "Casual Summer Top",
+    price: 1299,
+    originalPrice: 1599,
+    image: top1,
+    rating: 4.3,
+    reviews: 78,
+    isOnSale: true,
+    category: "tops",
+    description: "Light and breezy summer top perfect for casual outings."
+  },
+  {
+    id: "6",
+    name: "Delicate Gold Necklace",
+    price: 1799,
+    image: accessory1,
+    rating: 4.6,
+    reviews: 94,
+    category: "accessories",
+    description: "Elegant gold necklace that adds sophistication to any outfit."
+  },
+  {
+    id: "7",
+    name: "Summer Floral Dress",
+    price: 2199,
+    image: dress1,
+    rating: 4.4,
+    reviews: 92,
+    category: "dresses",
+    description: "Fresh floral print dress perfect for summer events and garden parties."
+  },
+  {
+    id: "8",
+    name: "Chiffon Blouse",
+    price: 1699,
+    originalPrice: 2199,
+    image: top1,
+    rating: 4.6,
+    reviews: 156,
+    isOnSale: true,
+    category: "tops",
+    description: "Delicate chiffon blouse that pairs beautifully with any bottom."
+  },
+  {
+    id: "9",
+    name: "Statement Earrings",
+    price: 899,
+    image: accessory1,
+    rating: 4.8,
+    reviews: 203,
+    category: "accessories",
+    description: "Bold statement earrings that elevate any look instantly."
+  }
 ];
 
 const ProductDetail = () => {
@@ -103,11 +201,11 @@ const ProductDetail = () => {
 
               <div className="flex items-baseline gap-3 mb-6">
                 <span className="text-4xl font-bold text-primary">
-                  ${product.price}
+                  ${(product.price / 100).toFixed(2)}
                 </span>
                 {product.originalPrice && (
                   <span className="text-2xl text-muted-foreground line-through">
-                    ${product.originalPrice}
+                    ${(product.originalPrice / 100).toFixed(2)}
                   </span>
                 )}
               </div>
