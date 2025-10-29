@@ -23,7 +23,7 @@ const Navbar = () => {
       {/* Top bar */}
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <Link to="/" className="text-2xl font-bold text-foreground">
           Laiba Designers
         </Link>
 
